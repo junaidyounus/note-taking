@@ -2,5 +2,12 @@
     background: #022451;
     min-height: 100vh;
     font-size: 16px;
-
+    padding: 16px;
+}
+.box{
+    height: 300px;
+    width: 300px;
+    background: #fff;
+    border-radius: 12px;
+    margin: 12px;
 }
