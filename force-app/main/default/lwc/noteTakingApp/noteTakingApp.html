@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-       <div class="box box-center">
+       <div class="box box-center" onclick={createNoteHandler}>
         <div class="dotted-circle">
             <lightning-icon icon-name='utility:add' class="custom-icon" alternative-text='add' size='large' title='add'></lightning-icon>
         </div>
@@ -13,7 +13,7 @@
         <div class="notes">
             note description will come here
         </div>
-        <footer>
+        <footer class="footer">
             <div class="date">Tue Sep 02 2024</div>
             <div>
                 <lightning-icon icon-name='action:edit' 
@@ -33,4 +33,17 @@
         </footer>
        </div>
     </div>
+
+
+    <template if:true={showModal}>
+        <c-modal>
+            <h1 slot="header" class="slds-modal__title">Modal Heading</h1>
+            <div>I am a body</div>
+            <footer slot="footer">
+                <button class="slds-button slds-button_neutral" onclick={closeModalHandler}>Cancel</button>
+                <button class="slds-button slds-button_brand">Save</button>
+            </footer>
+        </c-modal>
+    </template>
+
 </template>

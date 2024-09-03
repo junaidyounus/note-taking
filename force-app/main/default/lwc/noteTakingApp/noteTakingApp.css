@@ -69,7 +69,7 @@ header{
     padding: var(--4-px) var(--16-px);
 }
 
-footer{
+.footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
