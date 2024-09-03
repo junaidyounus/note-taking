@@ -1,15 +1,31 @@
+:host(){
+    --dark-blue: #022451;
+    --white: #fff;
+    --dark-gray: #6D6D6D;
+    --light-blue: #0076d3;
+    --light-gray: #cecece;
+    --light-red: #e91515;
+    --12-px: 12px;
+    --16-px: 16px;
+    --4-px: 4px;
+
+}
+
+
 .app{
-    background: #022451;
+    background: var(--dark-blue);
     min-height: 100vh;
-    font-size: 16px;
-    padding: 16px;
+    font-size: var(--16-px);
+    padding: var(--16-px);
+    display: flex;
+    flex-wrap: wrap;
 }
 .box{
     height: 300px;
     width: 300px;
-    background: #fff;
-    border-radius: 12px;
-    margin: 12px;
+    background: var(--white);
+    border-radius: var(--12-px);
+    margin: var(--12-px);
 }
 .box-center{
     display: flex;
@@ -19,16 +35,51 @@
     cursor: pointer;
 }
 .dotted-circle{
-    border: 2px solid #022451;
+    border: 2px solid var(--dark-blue);
     border-radius: 50%;
-    padding: 16px;
+    padding: var(--16-px);
 }
 h2{
     font-size: 20px;
     font-weight: 700;
-    margin-top: 12px;
 }
 
 .custom-icon{
-    --slds-c-icon-color-foreground-default: #022451;
+    --slds-c-icon-color-foreground-default: var(--dark-blue);
+}
+.edit-icon{
+    --slds-c-icon-color-background: var(--dark-blue);
+}
+
+.delete-icon{
+    --slds-c-icon-color-background: var(--light-red);
+}
+
+header{
+    background: var(--light-blue);
+    color: var(--white);
+    padding: var(--4-px) var(--16-px);
+    border-top-left-radius: var(--12-px);
+    border-top-right-radius: var(--12-px);
+}
+
+.notes{
+    height: 221px;
+    overflow: auto;
+    padding: var(--4-px) var(--16-px);
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--4-px) var(--16-px);
+    background: var(--light-gray);
+    border-bottom-left-radius: var(--12-px);
+    border-bottom-right-radius: var(--12-px);
+}
+.date{
+    color: var(--dark-gray);
+    font-size: 14px;
+    font-style: italic;
 }
