@@ -1,4 +1,5 @@
 import { LightningElement } from 'lwc';
+import createNoteRecord from '@salesforce/apex/NoteTakingController.createNoteRecord';
 
 const DEFAULT_NOTE_FORM = {
     Name:"",
@@ -45,6 +46,15 @@ export default class NoteTakingApp extends LightningElement {
 
     formSubmitHandler(event){
         event.preventDefault();
-        console.log("this.noteRecord", this.noteRecord);
+        console.log("this.noteRecord", JSON.stringify(this.noteRecord));
+        this.createNote();
+    }
+
+    createNote(){
+        createNoteRecord({title:this.noteRecord.Name, description:this.noteRecord.Note_Description__c}).then(()=>{
+            this.showModal = false;
+        }).catch(error=>{
+         console.error("error", error.message.body);
+        })
     }
 }
