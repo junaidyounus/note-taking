@@ -15,7 +15,7 @@
                 <h2 class="slds-truncate">{note.Name}</h2>
             </header>
             <div class="notes">
-                {note.Note_Description__c}
+                <c-append-html result={note.Note_Description__c}></c-append-html>
             </div>
             <footer class="footer">
                 <div class="date">{note.formattedDate}</div>
