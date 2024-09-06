@@ -1,5 +1,6 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import createNoteRecord from '@salesforce/apex/NoteTakingController.createNoteRecord';
+import getNotes from '@salesforce/apex/NoteTakingController.getNotes';
 
 const DEFAULT_NOTE_FORM = {
     Name:"",
@@ -9,6 +10,7 @@ const DEFAULT_NOTE_FORM = {
 export default class NoteTakingApp extends LightningElement {
     showModal = false
     noteRecord = DEFAULT_NOTE_FORM;
+    noteList = []
     formats = [
         'font',
         'size',
@@ -28,6 +30,21 @@ export default class NoteTakingApp extends LightningElement {
 
     get isFormInvalid(){
         return !(this.noteRecord && this.noteRecord.Name && this.noteRecord.Note_Description__c)
+    }
+
+    @wire(getNotes)
+    noteListInfo({data,error}){
+        if(data){
+            console.log("note data" , JSON.stringify(data));
+            this.noteList = data.map(item=>{
+                let formattedDate = new Date(item.LastModifiedDate).toDateString()
+                return {...item , formattedDate}
+            })
+        }
+        if(error){
+            console.error("error in fetching", error.message.body);
+            this.showToastMsg(error.message.body, 'error');
+        }
     }
 
     createNoteHandler(){
