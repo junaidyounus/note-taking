@@ -24,12 +24,14 @@
                     alternative-text='edit' 
                     size='xx-small' 
                     title='edit note'
-                    class="edit-icon slds-var-m-right_x-small"></lightning-icon>
+                    class="edit-icon slds-var-m-right_x-small cursor"
+                    onclick={editNoteHandler}
+                    data-recordid={note.Id}></lightning-icon>
                     <lightning-icon icon-name='action:delete' 
                     alternative-text='delete' 
                     size='xx-small' 
                     title='delete note'
-                    class="delete-icon"></lightning-icon>
+                    class="delete-icon cursor"></lightning-icon>
                 </div>
                 <div>
     
@@ -43,7 +45,7 @@
 
     <template if:true={showModal}>
         <c-modal>
-            <h1 slot="header" class="slds-modal__title">Add Note</h1>
+            <h1 slot="header" class="slds-modal__title">{ModalName}</h1>
             <form>
                 <lightning-input 
                 type="text" 
@@ -62,7 +64,7 @@
             </form>
             <footer slot="footer">
                 <button class="slds-button slds-button_neutral" onclick={closeModalHandler}>Cancel</button>
-                <button class="slds-button slds-button_brand" onclick={formSubmitHandler} disabled={isFormInvalid}>Save</button>
+                <button class="slds-button slds-button_brand" onclick={formSubmitHandler} disabled={isFormInvalid}>{ModalName}</button>
             </footer>
         </c-modal>
     </template>
