@@ -1,8 +1,8 @@
 <template>
     <template if:true={showNotification}>
-        <div class="slds-notify_container slds-is-relative">
+        <div class="slds-notify_container slds-is-relative fixed-notification">
             <div class={notifyClasses} role="status">
-                <h2>{message}</h2>
+                <h2 class="slds-text-heading_small">{message}</h2>
             </div>
             </div>
     </template>

@@ -31,7 +31,9 @@
                     alternative-text='delete' 
                     size='xx-small' 
                     title='delete note'
-                    class="delete-icon cursor"></lightning-icon>
+                    class="delete-icon cursor"
+                    data-recordid={note.Id}
+                    onclick={deleteNoteHandler}></lightning-icon>
                 </div>
                 <div>
     
